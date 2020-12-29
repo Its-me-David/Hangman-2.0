@@ -1,5 +1,5 @@
 from hangman import *
 
 
-h = hangman('j')
+h = hangman("Word")
 h.go()
