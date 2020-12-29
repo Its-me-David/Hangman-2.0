@@ -1,4 +1,4 @@
-from hangman import hangman
+from hangman import *
 
 
 h = hangman('j')
