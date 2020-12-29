@@ -1,24 +1,24 @@
 import sets
 
 class hangman:
-	def __init__(self, word):
-		self.word = word.upper()
-		self.shown = ""
-		self.guessed = []
-		self.step = 0
-		for i in word:
-			if i != " ":
-				self.shown += "-"
-			else:
-				self.shown += " "
-	
-	def trial(self, guess):
-		if len(guess) != 1:
-			print("Please guess one letter!")
-		elif guess.upper() in self.guessed:
-			print("You have already guessed that letter!")
-		elif guess.upper() in self.word:
-			s = list(self.shown)
+    def __init__(self, word):
+        self.word = word.upper()
+        self.shown = ""
+        self.guessed = []
+        self.step = 0
+        for i in word:
+            if i != " ":
+                self.shown += "-"
+            else:
+                self.shown += " "
+    
+    def trial(self, guess):
+        if len(guess) != 1:
+            print("Please guess one letter!")
+        elif guess.upper() in self.guessed:
+            print("You have already guessed that letter!")
+        elif guess.upper() in self.word:
+            s = list(self.shown)
             for i in range(len(self.word)):
                 if self.word[i] == guess.upper():
                     s[i] = guess.upper()
