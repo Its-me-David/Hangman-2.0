@@ -1,5 +1,13 @@
 import random
+import time
 
+# Den Spieler einladen zu spielen
+print("Willkommen bei Hangman")
+name = input("Gib deinen Namen ein: ")
+print("Hallo " + name + ", viel Glück!")
+time.sleep(2)
+print("Lasset die Spiele beginnen!")
+time.sleep(3)
 
 answerlist = []
 
@@ -58,7 +66,6 @@ if len(answer) > 1 and answer.isalpha():
             print("Tut mir leid, das war ein falscher Buchstabe, du hast noch ",incorrect," Versuche")
             
         print("Du hast ",count," Buchstaben richtig erraten")
-        print("Du hast noch ",incorrect," Chancen übrig")
         
     if count == len(answer):
         print("Sehr gut, Du hast das Wort erraten!")
