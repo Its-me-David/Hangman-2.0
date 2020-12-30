@@ -1,4 +1,14 @@
-import sets
+import output
+import time
+
+# Den Spieler einladen zu spielen
+print("Willkommen bei Hangman")
+name = input("Gib deinen Namen ein: ")
+print("Hallo " + name + ", viel Glück!")
+time.sleep(2)
+print("Lasset das Spiel beginnen!")
+time.sleep(3)
+
 
 class hangman:
     def __init__(self, word):
@@ -14,7 +24,7 @@ class hangman:
     
     def trial(self, guess):
         if len(guess) != 1:
-            print("Bitte einen Buchstaben eingeben")
+            print("Bitte einen Buchstaben eingeben!")
         elif guess.upper() in self.guessed:
             print("Diesen Buchstaben hast du bereits probiert!")
         elif guess.upper() in self.word:
@@ -43,11 +53,11 @@ class hangman:
         if len(self.guessed) == 0:
             print("Du hast noch keine Buchstaben geraten...")
         else:
-            toprint = "Bisher versuchte Buchstaben: "
+            tried = "Bisher versuchte Buchstaben: "
             for i in self.guessed:
-                toprint += i
-                toprint += " "
-            print(toprint)
+                tried += i
+                tried += " "
+            print(tried)
 
     def is_dead(self):
         return self.step == len(sets.hangman) - 1
