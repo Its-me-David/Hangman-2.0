@@ -46,7 +46,7 @@ class hangman:
         print(self.shown)
             
     def print_hangman(self):
-        for i in sets.hangman[self.step]:
+        for i in output.hangman[self.step]:
             print(i)
 
     def print_guessed(self):
@@ -60,7 +60,7 @@ class hangman:
             print(tried)
 
     def is_dead(self):
-        return self.step == len(sets.hangman) - 1
+        return self.step == len(output.hangman) - 1
 
     def is_won(self):
         return not "-" in self.shown
