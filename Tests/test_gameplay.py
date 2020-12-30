@@ -3,5 +3,5 @@ import random
 
 from context import hangman
 
-h = hangman("Word")
+h = visualisation("Word")
 h.go()
