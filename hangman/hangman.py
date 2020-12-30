@@ -14,9 +14,9 @@ class hangman:
     
     def trial(self, guess):
         if len(guess) != 1:
-            print("Please guess one letter!")
+            print("Bitte einen Buchstaben eingeben")
         elif guess.upper() in self.guessed:
-            print("You have already guessed that letter!")
+            print("Diesen Buchstaben hast du bereits probiert!")
         elif guess.upper() in self.word:
             s = list(self.shown)
             for i in range(len(self.word)):
@@ -41,9 +41,9 @@ class hangman:
 
     def print_guessed(self):
         if len(self.guessed) == 0:
-            print("No Letters Previously Guessed")
+            print("Du hast noch keine Buchstaben geraten...")
         else:
-            toprint = "Letters Guessed: "
+            toprint = "Bisher versuchte Buchstaben: "
             for i in self.guessed:
                 toprint += i
                 toprint += " "
@@ -60,7 +60,7 @@ class hangman:
             self.print_shown()
             self.print_hangman()
             self.print_guessed()
-            print("What is your guess?")
+            print("Rate einen Buchstaben!")
             guess = input(">> ")
             self.trial(guess)
 
@@ -68,7 +68,7 @@ class hangman:
         self.print_hangman()
         self.print_guessed()
         if self.is_won():
-            print("Congratulations! You win!")
+            print("Gratuliere, du hast das Wort erraten!")
         elif self.is_dead():
-            print("LOL YOU LOSE")
+            print("Tut mir leid, das war wohl nichts!")
             
