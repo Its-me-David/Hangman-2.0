@@ -1,3 +1,3 @@
-from .gameplay import h
-from .hangman import hangman
-from .output import hangman
+from .gameplay import *
+from .hangman import *
+from .output import *
