@@ -5,12 +5,12 @@ import time
 print("Willkommen bei Hangman")
 name = input("Gib deinen Namen ein: ")
 print("Hallo " + name + ", viel Glück!")
-time.sleep(2)
+time.sleep(1)
 print("Lasset das Spiel beginnen!")
-time.sleep(3)
+time.sleep(2)
 
 
-class hangman:
+class visualisation:
     def __init__(self, word):
         self.word = word.upper()
         self.shown = ""
@@ -24,7 +24,7 @@ class hangman:
     
     def trial(self, guess):
         if len(guess) != 1:
-            print("Bitte einen Buchstaben eingeben!")
+            print("Bitte nur einen Buchstaben eingeben!")
         elif guess.upper() in self.guessed:
             print("Diesen Buchstaben hast du bereits probiert!")
         elif guess.upper() in self.word:
@@ -45,8 +45,8 @@ class hangman:
     def print_shown(self):
         print(self.shown)
             
-    def print_hangman(self):
-        for i in output.hangman[self.step]:
+    def print_visualisation(self):
+        for i in output.visualisation[self.step]:
             print(i)
 
     def print_guessed(self):
@@ -60,7 +60,7 @@ class hangman:
             print(tried)
 
     def is_dead(self):
-        return self.step == len(output.hangman) - 1
+        return self.step == len(output.visualisation) - 1
 
     def is_won(self):
         return not "-" in self.shown
@@ -68,14 +68,14 @@ class hangman:
     def go(self):
         while not self.is_won() and not self.is_dead():
             self.print_shown()
-            self.print_hangman()
+            self.print_visualisation()
             self.print_guessed()
             print("Rate einen Buchstaben!")
             guess = input(">> ")
             self.trial(guess)
 
         self.print_shown()
-        self.print_hangman()
+        self.print_visualisation()
         self.print_guessed()
         if self.is_won():
             print("Gratuliere, du hast das Wort erraten!")

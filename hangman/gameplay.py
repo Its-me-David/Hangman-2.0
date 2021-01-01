@@ -1,5 +1,5 @@
 from hangman import *
 
 
-h = hangman("Word")
-h.go()
+v = visualisation("Word")
+v.go()
