@@ -1,6 +1,16 @@
-import sets
+import output
+import time
 
-class hangman:
+# Den Spieler einladen zu spielen
+print("Willkommen bei Hangman")
+name = input("Gib deinen Namen ein: ")
+print("Hallo " + name + ", viel Glück!")
+time.sleep(1)
+print("Lasset das Spiel beginnen!")
+time.sleep(2)
+
+
+class visualisation:
     def __init__(self, word):
         self.word = word.upper()
         self.shown = ""
@@ -14,9 +24,9 @@ class hangman:
     
     def trial(self, guess):
         if len(guess) != 1:
-            print("Please guess one letter!")
+            print("Bitte nur einen Buchstaben eingeben!")
         elif guess.upper() in self.guessed:
-            print("You have already guessed that letter!")
+            print("Diesen Buchstaben hast du bereits probiert!")
         elif guess.upper() in self.word:
             s = list(self.shown)
             for i in range(len(self.word)):
@@ -35,22 +45,22 @@ class hangman:
     def print_shown(self):
         print(self.shown)
             
-    def print_hangman(self):
-        for i in sets.hangman[self.step]:
+    def print_visualisation(self):
+        for i in output.visualisation[self.step]:
             print(i)
 
     def print_guessed(self):
         if len(self.guessed) == 0:
-            print("No Letters Previously Guessed")
+            print("Du hast noch keine Buchstaben geraten...")
         else:
-            toprint = "Letters Guessed: "
+            tried = "Bisher versuchte Buchstaben: "
             for i in self.guessed:
-                toprint += i
-                toprint += " "
-            print(toprint)
+                tried += i
+                tried += " "
+            print(tried)
 
     def is_dead(self):
-        return self.step == len(sets.hangman) - 1
+        return self.step == len(output.visualisation) - 1
 
     def is_won(self):
         return not "-" in self.shown
@@ -58,17 +68,17 @@ class hangman:
     def go(self):
         while not self.is_won() and not self.is_dead():
             self.print_shown()
-            self.print_hangman()
+            self.print_visualisation()
             self.print_guessed()
-            print("What is your guess?")
+            print("Rate einen Buchstaben!")
             guess = input(">> ")
             self.trial(guess)
 
         self.print_shown()
-        self.print_hangman()
+        self.print_visualisation()
         self.print_guessed()
         if self.is_won():
-            print("Congratulations! You win!")
+            print("Gratuliere, du hast das Wort erraten!")
         elif self.is_dead():
-            print("LOL YOU LOSE")
+            print("Tut mir leid, das war wohl nichts!")
             
